@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<link rel="stylesheet" href="css/primeflex.min.css" type="text/css"
+		media="screen" />
+		<style>
+		.conteiner{
+		width: 90%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+		}
+		
+		</style>
+
+</h:head>
+
+<h:body>
+
+
+	<h:form>
+
+		<p:inputNumber value="#{componentesController.numero1}"
+			decimalPlaces="0" />
+		<p:inputNumber value="#{componentesController.numero2}"
+			decimalPlaces="0" />
+		<br />
+		<p:inputNumber id="resultado"
+			value="#{componentesController.resultado}" />
+		<p:commandButton value="Somar" action="#{componentesController.somar}"
+			update="resultado,products" />
+		<br />
+		<br />
+
+
+		<p:inputNumber id="resultado2"
+			value="#{componentesController.resultado2}" />
+		<p:commandButton value="Subtrair"
+			action="#{componentesController.subtrair}" update="resultado2,product" />
+		<br />
+		<br />
+
+
+		<p:inputNumber id="resultado3"
+			value="#{componentesController.resultado3}" />
+		<p:commandButton value="Multiplicar"
+			action="#{componentesController.multiplicar}" update="resultado3,produc" />
+		<br />
+		<br />
+
+
+		<p:inputNumber id="resultado4"
+			value="#{componentesController.resultado4}" />
+		<p:commandButton value="Dividir"
+			action="#{componentesController.dividir}" update="resultado4,produ" />
+
+		<div class="conteiner">
+			<div>
+				<p:dataTable id="products" var="product"
+					value="#{componentesController.listaSoma}">
+					<f:facet name="header">
+
+					</f:facet>
+
+					<p:column headerText="Soma">
+						<h:outputText value="#{product}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</div>
+			<div>
+				<p:dataTable id="product" var="product"
+					value="#{componentesController.listaSubtrair}">
+					<f:facet name="header">
+
+					</f:facet>
+
+					<p:column headerText="Subtrair">
+						<h:outputText value="#{product}" />
+					</p:column>
+
+				</p:dataTable>
+			</div>
+			<div>
+				<p:dataTable id="produc" var="product"
+					value="#{componentesController.listaMultiplicar}">
+					<f:facet name="header">
+
+					</f:facet>
+
+					<p:column headerText="multiplicar">
+						<h:outputText value="#{product}" />
+					</p:column>
+
+				</p:dataTable>
+			</div>
+			<div>
+				<p:dataTable id="produ" var="product"
+					value="#{componentesController.listaDividir}">
+					<f:facet name="header">
+
+					</f:facet>
+
+					<p:column headerText="dividir">
+						<h:outputText value="#{product}" />
+					</p:column>
+
+				</p:dataTable>
+			</div>
+
+
+		</div>
+
+
+
+	</h:form>
+
+
+</h:body>
+
+</html>
